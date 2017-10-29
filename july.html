@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>七月上</title>
+    <style type="text/css">
+    html,body{height:100%; width:100%; overflow:hidden; margin:0; padding:0;}
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .box{
+        position:absolute;width:90%; 
+        height:300px; 
+    }
+    p{
+        position:absolute;width:100%; height:300px; 
+        text-align: center;
+        line-height: 100px;
+        font-size: 100px;
+        font-weight: 1000;
+        border: 1px solid red;
+        margin: 100px auto;
+    }
+    </style>
+</head>
+<body>        
+    <p></p>
+<script>
+    var str ="[00:00.00]加油！[00:02.00]词：Jam [00:04.00]曲：Jam[01:36.01][00:11.76]我化尘埃飞扬[01:39.84][00:15.83]追寻赤裸逆翔[01:43.96][00:19.79]奔去七月刑场[01:47.71][00:23.65]时间烧灼滚烫[01:51.76][00:27.74]回忆撕毁臆想[01:55.80][00:31.71]路上行走匆忙[02:00.25][00:35.50]难能可贵世上[02:03.88][00:40.13]散播留香磁场[02:08.72][00:46.57][02:11.79][00:47.87]我欲乘风破浪[02:13.78][00:49.84]踏遍黄沙海洋[02:15.57][00:52.22]与其误会一场[02:17.52][00:54.30]也要不负勇往[02:19.41][00:57.25]我愿你是个谎[02:21.39][00:58.87]从未出现南墙[02:23.36][01:01.02]笑是神的伪装[02:25.32][01:02.88]笑是强忍的伤[02:27.31][01:04.80]就让我走向你走向你的床[02:31.36][01:08.79]就让我看见你看见你的伤[02:35.69][01:12.22]我想你就站在[02:37.22][01:15.15]站在大漠边疆[02:39.27][01:17.20]我想你就站在七月上[02:46.35][01:23.65]";
+    var p=document.getElementsByTagName("p")[0];
+    var arr = str.split("[");
+    arr.shift(); 
+    function every(str){
+        var everyArr = str.split(']');
+        var time = everyArr[0];
+        var content = everyArr[1].trim();
+        var minutes=Number(time.slice(0,2));
+        var seconds=Number(time.slice(3));
+        var ms=(minutes*60+seconds)*1000;
+        setTimeout(function(){ 
+        p.innerHTML=content;
+        },ms);
+    }
+    for(var i=0;i<arr.length;i++){
+        every(arr[i]);
+    }
+    
+</script>
+</body>
+</html>
